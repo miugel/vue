@@ -1,0 +1,55 @@
+{
+    "title": "Quiz 1 - HTML/CSS/JS Practice",
+    "questions": [
+        {
+            "question": "What is the purpose of HTML and CSS?",
+            "choices": [
+                "HTML handles data, CSS handles routing",
+                "HTML tells the browser what to display, CSS tells it what style to display it in",
+                "HTML styles the page, CSS makes it interactive",
+                "HTML makes the page interactive, CSS styles the page"
+            ],
+            "correct_answer": "HTML tells the browser what to display, CSS tells it what style to display it in"
+        },
+        {
+            "question": "Which of these HTML tags contains correct syntax?",
+            "choices": [
+                "<div class=row></div>",
+                "<div style='position:absolute;'</div>",
+                "<div class='row' style='position:absolute;'/></div>",
+                "<div class='row' id='my-div'></div>"
+            ],
+            "correct_answer": "<div class='row' id='my-div'></div>"
+        },
+        {
+            "question": "Which of these HTML tags contains correct syntax?",
+            "choices": [
+                "<div class=row></div>",
+                "<div style='position:absolute;'</div>",
+                "<div class='row' style='position:absolute;'/></div>",
+                "<div class='row' id='my-div'></div>"
+            ],
+            "correct_answer": "<div class='row' id='my-div'></div>"
+        },
+        {
+            "question": "What is the convention for variable naming in JavaScript?",
+            "choices": [
+                "Pascal Casing (i.e. MyVariable)",
+                "Camel Casing (i.e. myVariable)",
+                "Kebab Casing (i.e. MyVariable)",
+                "All Caps (i.e. MYVARIABLE)"
+            ],
+            "correct_answer": "Camel Casing (i.e. myVariable)"
+        },
+        {
+            "question": "What is the difference between == and === in JavaScript?",
+            "choices": [
+                "== checks both variables have a value set, === checks if the two values are equal",
+                "== checks for the same value, === checks for the same value and same data type",
+                "== is used for numerical equality, === is used for strings and characters",
+                "They are the same"
+            ],
+            "correct_answer": "== checks for the same value, === checks for the same value and same data type"
+        }
+    ]
+}
