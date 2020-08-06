@@ -6,16 +6,16 @@
 </template>
 
 <script>
-import Header from './components/Header.vue';
-import QuestionList from './components/QuestionList.vue';
+  import Header from './components/Header.vue';
+  import QuestionList from './components/QuestionList.vue';
 
-export default {
-  name: 'App',
-  components: {
-    Header,
-    QuestionList
-  }
-};
+  export default {
+    name: 'App',
+    components: {
+      Header,
+      QuestionList
+    }
+  };
 </script>
 
 <style>
