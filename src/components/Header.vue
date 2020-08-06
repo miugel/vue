@@ -7,21 +7,22 @@
 </template>
 
 <script>
-export default {
-  name: 'Header'
-}
+  export default {
+    name: 'Header'
+  }
 </script>
 
 <style scoped>
-.container {
-  background-color: maroon;
-  color: white;
-  display: flex;
-  align-items: center;
-  height: 48px;
-}
-.inner-container {
-  margin: 0 auto;
-  width: 90%;
-}
+  .container {
+    background-color: maroon;
+    color: white;
+    display: flex;
+    align-items: center;
+    height: 48px;
+  }
+  
+  .inner-container {
+    margin: 0 auto;
+    width: 90%;
+  }
 </style>
