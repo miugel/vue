@@ -3,7 +3,7 @@
 		<h2>Results</h2>
 		<p class="questions-correct">You got {{ correctlyAnswered }}/{{ currentSelections.length }} questions correct</p>
 		<!-- Should we round to two decimal places? Add .toFixed(2) to the end, but then clean numbers get .00 at the end, so I'm not sure -->
-		<p class="percentage">{{ ((correctlyAnswered / currentSelections.length) * 100) }}%</p>
+		<p class="percentage">{{ ((correctlyAnswered / currentSelections.length) * 100).toFixed(2) }}%</p>
 	</div>
 </template>
 
@@ -20,7 +20,7 @@
 			correctlyAnswered: 0
 		}),
 		mounted() {
-				// Iterate over questions and compare correct question to currently selected and calculate, rounding?
+			// Iterate over questions and compare correct question to currently selected and calculate, rounding?
 			this.questions.questions.map((question, index) => {
 				if (question.correct_answer === question.choices[this.currentSelections[index]]) {
 					this.correctlyAnswered += 1;

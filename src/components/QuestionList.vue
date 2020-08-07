@@ -91,6 +91,11 @@
     box-shadow: none;
   }
 
+  .submit:disabled {
+    opacity: 0.5;
+    cursor: auto;
+  }
+
   .error {
     color: #dd4b39;
     font-size: 14px;
