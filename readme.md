@@ -1,6 +1,6 @@
 # Vue Quiz
 
-### Deployed here: 
+### Deployed here: https://vuequiz.vercel.app/
 
 ## Project setup
 ```
