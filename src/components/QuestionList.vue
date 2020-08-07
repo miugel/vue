@@ -7,10 +7,11 @@
       :questionIndex="index"
       :currentSelections="currentSelections"
       :setCurrentSelections="setCurrentSelections"
+      :error="error"
     >
     </QuestionCard>
-    <button class="submit">Submit</button>
-    <!-- <p class="error" v-if="error">{{ error }}</p> -->
+    <button class="submit" @click="onSubmit()">Submit</button>
+    <p class="error" v-if="error">{{ error }}</p>
   </div>
 </template>
 
@@ -25,14 +26,23 @@
     },
     data: () => ({
       questions: questions,
-      currentSelections: new Array(questions.questions.length),
-      error: "Answer all questions before submitting. Unanswered questions are displayed in yellow."
+      // Array to keep track of all currently selected choices, index is the question index, choices default to undefined
+      currentSelections: Array(questions.questions.length).fill(null),
+      error: ""
     }),
     methods: {
-      // This will modify the current selection, keeping track of the question inputs, takes in the question's index and the choice index as the value
-      setCurrentSelections: (questionIndex, value) => {
-        console.log("setCurrentSelections run");
-        return this.currentSelections[questionIndex] = value;
+      // This will modify the current selection, keeping track of the question inputs, takes in the question's index and the choice's index as the value
+      // Came across issues using arrow functions
+      setCurrentSelections: function(questionIndex, choiceIndex) {
+        return this.currentSelections[questionIndex] = choiceIndex
+      },
+      onSubmit: function() {
+        // Validate all questions are answered, if not display error message and give unanswered questions a yellow border
+        if (this.currentSelections.filter(selection => selection === null)) {
+          this.error = "Answer all questions before submitting. Unanswered questions are displayed in yellow.";
+        } else {
+          this.error = null;
+        }
       }
     }
   };

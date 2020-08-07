@@ -1,5 +1,5 @@
 <template>
-  <div class="question-card-container">
+  <div class="question-card-container" :class="{ unanswered: error && currentSelections[questionIndex] === null }">
     <p class="question">{{ questionIndex + 1 }}. {{ question.question }}</p>
     <label v-for="(choice, choiceIndex) in question.choices" :key="choiceIndex">
       <input :name="questionIndex + 1" type="radio" :value="choiceIndex" @click="setCurrentSelections(questionIndex, choiceIndex)" />
@@ -17,7 +17,8 @@
       question: Object,
       questionIndex: Number,
       currentSelections: Array,
-      setCurrentSelections: Function
+      setCurrentSelections: Function,
+      error: String
     }
   };
 </script>
@@ -27,7 +28,6 @@
     background-color: white;
     /* border: 2px solid #dd4b39; */
     /* border: 2px solid #08a05c; */
-    /* border: 2px solid #f4b400; */
     border: 2px solid white;
     border-radius: 3px;
     box-shadow: 0px 3px 3px 0px #ccc;
@@ -60,6 +60,10 @@
     background-color: whitesmoke;
   }
 
+  input {
+    margin-right: 3px;
+  }
+
   .wrong {
     bottom: 4px;
     color: #dd4b39;
@@ -76,5 +80,9 @@
     font-weight: 600;
     right: 4px;
     position: absolute;
+  }
+
+  .unanswered {
+    border: 2px solid #f4b400;
   }
 </style>
