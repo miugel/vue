@@ -1,0 +1,80 @@
+<template>
+  <div class="question-card-container">
+    <p class="question">{{ questionIndex + 1 }}. {{ question.question }}</p>
+    <label v-for="(choice, choiceIndex) in question.choices" :key="choiceIndex">
+      <input :name="questionIndex + 1" type="radio" :value="choiceIndex" @click="setCurrentSelections(questionIndex, choiceIndex)" />
+      {{ choice }}
+    </label>
+    <!-- <p class="wrong">Wrong</p> -->
+    <!-- <p class="correct">Correct</p> -->
+  </div>
+</template>
+
+<script>
+  export default {
+    name: "QuestionCard",
+    props: {
+      question: Object,
+      questionIndex: Number,
+      currentSelections: Array,
+      setCurrentSelections: Function
+    }
+  };
+</script>
+
+<style scoped>
+  .question-card-container {
+    background-color: white;
+    /* border: 2px solid #dd4b39; */
+    /* border: 2px solid #08a05c; */
+    /* border: 2px solid #f4b400; */
+    border: 2px solid white;
+    border-radius: 3px;
+    box-shadow: 0px 3px 3px 0px #ccc;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 16px;
+    padding: 16px;
+    position: relative;
+    width: 100%;
+  }
+
+  .question {
+    color: #2c3e50;
+    font-size: 14px;
+    padding-bottom: 8px;
+  }
+
+  label {
+    /* background-color: #08a05c; */
+    border-radius: 3px;
+    cursor: pointer;
+    color: #2c3e50;
+    font-size: 14px;
+    padding: 8px;
+    transition: 0.5s;
+    width: 100%;
+  }
+
+  label:hover {
+    background-color: whitesmoke;
+  }
+
+  .wrong {
+    bottom: 4px;
+    color: #dd4b39;
+    font-size: 14px;
+    font-weight: 600;
+    right: 4px;
+    position: absolute;
+  }
+
+  .correct {
+    bottom: 4px;
+    color: #08a05c;
+    font-size: 14px;
+    font-weight: 600;
+    right: 4px;
+    position: absolute;
+  }
+</style>
