@@ -1,6 +1,7 @@
 <template>
   <div class="question-list-container">
     <h1>{{ questions.title }}</h1>
+    <Results v-if="successfullySubmitted" :questions="questions" :currentSelections="currentSelections" />
     <QuestionCard
       v-for="(question, index) in questions.questions"
       :key="index" :question="question"
@@ -17,18 +18,22 @@
 
 <script>
   import QuestionCard from "./QuestionCard";
+  import Results from "./Results";
   import questions from "../questions.json";
 
   export default {
     name: "QuestionList",
     components: {
-      QuestionCard
+      QuestionCard,
+      Results
     },
     data: () => ({
       questions: questions,
       // Array to keep track of all currently selected choices, index is the question index, choices default to undefined
+      // Preallocate an array the length of the number of questions in the json file and fill it with null values
       currentSelections: Array(questions.questions.length).fill(null),
-      error: ""
+      error: null,
+      successfullySubmitted: false
     }),
     methods: {
       // This will modify the current selection, keeping track of the question inputs, takes in the question's index and the choice's index as the value
@@ -38,10 +43,14 @@
       },
       onSubmit: function() {
         // Validate all questions are answered, if not display error message and give unanswered questions a yellow border
-        if (this.currentSelections.filter(selection => selection === null)) {
+        const unansweredQuestions = this.currentSelections.filter(selection => selection === null);
+
+        if (unansweredQuestions.length > 0) {
           this.error = "Answer all questions before submitting. Unanswered questions are displayed in yellow.";
         } else {
           this.error = null;
+          this.successfullySubmitted = true;
+          window.scrollTo({ top: 0, behavior: "smooth" });
         }
       }
     }

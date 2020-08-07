@@ -27,7 +27,6 @@
   .question-card-container {
     background-color: white;
     /* border: 2px solid #dd4b39; */
-    /* border: 2px solid #08a05c; */
     border: 2px solid white;
     border-radius: 3px;
     box-shadow: 0px 3px 3px 0px #ccc;
@@ -46,7 +45,6 @@
   }
 
   label {
-    /* background-color: #08a05c; */
     border-radius: 3px;
     cursor: pointer;
     color: #2c3e50;
@@ -61,6 +59,7 @@
   }
 
   input {
+    cursor: pointer;
     margin-right: 3px;
   }
 
@@ -84,5 +83,10 @@
 
   .unanswered {
     border: 2px solid #f4b400;
+  }
+
+  .correct-answer {
+    background-color: #08a05c;
+    color: white;
   }
 </style>
