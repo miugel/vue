@@ -1,12 +1,30 @@
 <template>
-  <div class="question-card-container" :class="{ unanswered: error && currentSelections[questionIndex] === null }">
+  <div class="question-card-container"
+    :class="{
+      'unanswered-border': error && currentSelections[questionIndex] === null,
+      'correct-border': successfullySubmitted && question.choices[currentSelections[questionIndex]] === question.correct_answer,
+      'wrong-border': successfullySubmitted && question.choices[currentSelections[questionIndex]] !== question.correct_answer
+    }"
+  >
     <p class="question">{{ questionIndex + 1 }}. {{ question.question }}</p>
-    <label v-for="(choice, choiceIndex) in question.choices" :key="choiceIndex">
-      <input :name="questionIndex + 1" type="radio" :value="choiceIndex" @click="setCurrentSelections(questionIndex, choiceIndex)" />
+    <label
+      v-for="(choice, choiceIndex) in question.choices"
+      :key="choiceIndex"
+      :class="{ 'correct-answer': successfullySubmitted
+        && question.choices[currentSelections[questionIndex]] !== question.correct_answer
+        && choice === question.correct_answer
+      }"
+    >
+      <input
+        :name="questionIndex + 1"
+        type="radio" :value="choiceIndex"
+        @click="setCurrentSelections(questionIndex, choiceIndex)"
+        :disabled="successfullySubmitted"
+      />
       {{ choice }}
     </label>
-    <!-- <p class="wrong">Wrong</p> -->
-    <!-- <p class="correct">Correct</p> -->
+    <p class="correct" v-if="successfullySubmitted && question.choices[currentSelections[questionIndex]] === question.correct_answer">Correct</p>
+    <p class="wrong" v-if="successfullySubmitted && question.choices[currentSelections[questionIndex]] !== question.correct_answer">Wrong</p>
   </div>
 </template>
 
@@ -18,7 +36,8 @@
       questionIndex: Number,
       currentSelections: Array,
       setCurrentSelections: Function,
-      error: String
+      error: String,
+      successfullySubmitted: Boolean
     }
   };
 </script>
@@ -56,20 +75,12 @@
 
   label:hover {
     background-color: whitesmoke;
+    color: #2c3e50;
   }
 
   input {
     cursor: pointer;
     margin-right: 3px;
-  }
-
-  .wrong {
-    bottom: 4px;
-    color: #dd4b39;
-    font-size: 14px;
-    font-weight: 600;
-    right: 4px;
-    position: absolute;
   }
 
   .correct {
@@ -81,7 +92,24 @@
     position: absolute;
   }
 
-  .unanswered {
+  .wrong {
+    bottom: 4px;
+    color: #dd4b39;
+    font-size: 14px;
+    font-weight: 600;
+    right: 4px;
+    position: absolute;
+  }
+
+  .correct-border {
+    border: 2px solid #08a05c;
+  }
+
+  .wrong-border {
+    border: 2px solid #dd4b39;
+  }
+
+  .unanswered-border {
     border: 2px solid #f4b400;
   }
 

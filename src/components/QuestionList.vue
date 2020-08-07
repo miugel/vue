@@ -9,9 +9,10 @@
       :currentSelections="currentSelections"
       :setCurrentSelections="setCurrentSelections"
       :error="error"
+      :successfullySubmitted="successfullySubmitted"
     >
     </QuestionCard>
-    <button class="submit" @click="onSubmit()">Submit</button>
+    <button class="submit" @click="onSubmit()" :disabled="successfullySubmitted">Submit</button>
     <p class="error" v-if="error">{{ error }}</p>
   </div>
 </template>
@@ -77,14 +78,13 @@
     box-shadow: 0px 3px 3px 0px #ccc;
     cursor: pointer;
     color: white;
+    display: block;
     font-size: 14px;
     font-weight: 600;
     margin: 0 auto;
     margin-bottom: 16px;
     padding: 10px 16px;
     transition: 0.5s;
-
-    display: block;
   }
 
   .submit:hover {
