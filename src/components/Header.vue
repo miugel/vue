@@ -1,27 +1,22 @@
 <template>
-  <div class="container">
-    <div class="inner-container">
+  <div class="header-container">
+    <div class="inner-header-container">
       <p>Quiz Application</p>
     </div>
   </div>
 </template>
 
-<script>
-  export default {
-    name: 'Header'
-  };
-</script>
-
 <style scoped>
-  .container {
-    background-color: maroon;
+  .header-container {
+    background-color: #a6120d;
+    box-shadow: 0px 3px 3px 0px #ccc;
     color: white;
     display: flex;
     align-items: center;
     height: 48px;
   }
   
-  .inner-container {
+  .inner-header-container {
     margin: 0 auto;
     width: 90%;
   }

@@ -6,11 +6,11 @@
 </template>
 
 <script>
-  import Header from './components/Header.vue';
-  import QuestionList from './components/QuestionList.vue';
+  import Header from "./components/Header.vue";
+  import QuestionList from "./components/QuestionList.vue";
 
   export default {
-    name: 'App',
+    name: "App",
     components: {
       Header,
       QuestionList
@@ -23,6 +23,10 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+  }
+
+  html {
+    background-color: whitesmoke;
   }
   
   #app {
