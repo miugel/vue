@@ -42,7 +42,7 @@
             "correct_answer": "== checks for the same value, === checks for the same value and same data type"
         },
         {
-            "question": "What is the convention for variable naming in JavaScript?",
+            "question": "What is the convention for variable naming in JavaScript? (Repeated for quiz length)",
             "choices": [
                 "Pascal Casing (i.e. MyVariable)",
                 "Camel Casing (i.e. myVariable)",
@@ -52,7 +52,7 @@
             "correct_answer": "Camel Casing (i.e. myVariable)"
         },
         {
-            "question": "What is the difference between == and === in JavaScript?",
+            "question": "What is the difference between == and === in JavaScript? (Repeated for quiz length)",
             "choices": [
                 "== checks both variables have a value set, === checks if the two values are equal",
                 "== checks for the same value, === checks for the same value and same data type",
