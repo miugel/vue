@@ -12,4 +12,4 @@ Reset button?
 Keep track of inputs, or question selctions  
 Keep track of whether test has been submitted or not?  
 Check selections against correct answers, then go back and style as needed  
-Just focus on right or wrong, we'll go and fetch the correct answer  
+Just focus on right or wrong, and then go fetch the correct answer  
