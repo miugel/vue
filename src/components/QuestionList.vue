@@ -4,7 +4,8 @@
     <Results v-if="successfullySubmitted" :questions="questions" :currentSelections="currentSelections" />
     <QuestionCard
       v-for="(question, index) in questions.questions"
-      :key="index" :question="question"
+      :key="index"
+      :question="question"
       :questionIndex="index"
       :currentSelections="currentSelections"
       :setCurrentSelections="setCurrentSelections"
@@ -38,9 +39,8 @@
     }),
     methods: {
       // This will modify the current selection, keeping track of the question inputs, takes in the question's index and the choice's index as the value
-      // Came across issues using arrow functions
       setCurrentSelections: function(questionIndex, choiceIndex) {
-        return this.currentSelections[questionIndex] = choiceIndex
+        this.currentSelections[questionIndex] = choiceIndex
       },
       onSubmit: function() {
         // Validate all questions are answered, if not display error message and give unanswered questions a yellow border

@@ -2,13 +2,11 @@
 	<div class="results-container">
 		<h2>Results</h2>
 		<p class="questions-correct">You got {{ correctlyAnswered }}/{{ currentSelections.length }} questions correct</p>
-		<!-- Should we round to two decimal places? Add .toFixed(2) to the end, but then clean numbers get .00 at the end, so I'm not sure -->
 		<p class="percentage">{{ ((correctlyAnswered / currentSelections.length) * 100).toFixed(2) }}%</p>
 	</div>
 </template>
 
 <script>
-	// Compare current selections with the correct answers and apply styling classes to questions accordingly
 	export default {
 		name: "Results",
 		props: {

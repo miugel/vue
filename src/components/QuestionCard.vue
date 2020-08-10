@@ -10,14 +10,16 @@
     <label
       v-for="(choice, choiceIndex) in question.choices"
       :key="choiceIndex"
-      :class="{ 'correct-answer': successfullySubmitted
-        && question.choices[currentSelections[questionIndex]] !== question.correct_answer
-        && choice === question.correct_answer
+      :class="{
+        'correct-answer': successfullySubmitted
+          && question.choices[currentSelections[questionIndex]] !== question.correct_answer
+          && choice === question.correct_answer
       }"
     >
       <input
         :name="questionIndex + 1"
-        type="radio" :value="choiceIndex"
+        type="radio"
+        :value="choiceIndex"
         @click="setCurrentSelections(questionIndex, choiceIndex)"
         :disabled="successfullySubmitted"
       />
@@ -45,7 +47,6 @@
 <style scoped>
   .question-card-container {
     background-color: white;
-    /* border: 2px solid #dd4b39; */
     border: 2px solid white;
     border-radius: 3px;
     box-shadow: 0px 3px 3px 0px #ccc;
